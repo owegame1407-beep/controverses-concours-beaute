@@ -391,13 +391,73 @@
     </div>
   </section>
 
-
   <!-- CARTOGRAPHIE -->
   <section id="cartographie" class="section section-light">
     <div class="container">
       <h2 class="section-title">Cartographie</h2>
-      <p class="section-intro">Vue d'ensemble des acteurs et de leurs positions dans la controverse, selon leur engagement et leur orientation.</p>
-      <div id="carto-container"></div>
+      <p class="section-intro">Cliquez sur un acteur pour découvrir sa position, ses arguments et son rôle dans la controverse.</p>
+    </div>
+    <div class="carto-map-wrap">
+      <div class="carto-legend">
+        <span class="cleg pour">Pour l'inclusion</span>
+        <span class="cleg contre">Contre l'inclusion</span>
+        <span class="cleg neutre">Institutionnel</span>
+      </div>
+      <div class="carto-stage" id="carto-stage">
+        <!-- Zone POUR -->
+        <div class="carto-zone zone-pour">
+          <div class="zone-label">Pour</div>
+          <button class="cnode pour cn-talackova" onclick="showActor('talackova')"><span class="cnode-name">Jenna Talackova</span><span class="cnode-role">Candidate</span></button>
+          <button class="cnode pour cn-allred" onclick="showActor('allred')"><span class="cnode-name">Gloria Allred</span><span class="cnode-role">Avocate</span></button>
+          <button class="cnode pour cn-lorphelin" onclick="showActor('lorphelin')"><span class="cnode-name">Marine Lorphelin</span><span class="cnode-role">Miss France 2013</span></button>
+          <button class="cnode pour cn-kolle" onclick="showActor('kolle')"><span class="cnode-name">Rikkie Kollé</span><span class="cnode-role">Miss Pays-Bas 2023</span></button>
+          <button class="cnode pour cn-moreno" onclick="showActor('moreno')"><span class="cnode-name">Élisabeth Moreno</span><span class="cnode-role">Ministre (France)</span></button>
+          <button class="cnode pour cn-glaad" onclick="showActor('glaad')"><span class="cnode-name">GLAAD</span><span class="cnode-role">Association LGBT+</span></button>
+        </div>
+        <!-- Zone CENTRE -->
+        <div class="carto-zone zone-centre">
+          <div class="zone-label">Institutionnel</div>
+          <button class="cnode neutre cn-muorg" onclick="showActor('muorg')"><span class="cnode-name">Miss Universe Org.</span><span class="cnode-role">Organisation int.</span></button>
+          <button class="cnode neutre cn-mucanada" onclick="showActor('mucanada')"><span class="cnode-name">Miss Universe Canada</span><span class="cnode-role">Org. nationale</span></button>
+          <button class="cnode neutre cn-trump" onclick="showActor('trump')"><span class="cnode-name">Donald Trump</span><span class="cnode-role">Copropriétaire (2012)</span></button>
+          <!-- Panneau info -->
+          <div class="carto-info" id="carto-info">
+            <div class="cinfo-default" id="cinfo-default">
+              <div class="cinfo-hint">Cliquez sur un acteur pour en savoir plus</div>
+            </div>
+            <div class="cinfo-detail" id="cinfo-detail" style="display:none">
+              <button class="cinfo-close" onclick="closeActor()">&#x2715;</button>
+              <div class="cinfo-tag" id="cinfo-tag"></div>
+              <h3 class="cinfo-name" id="cinfo-name"></h3>
+              <p class="cinfo-role" id="cinfo-role"></p>
+              <p class="cinfo-desc" id="cinfo-desc"></p>
+              <blockquote class="cinfo-quote" id="cinfo-quote"></blockquote>
+              <div class="cinfo-influence" id="cinfo-influence"></div>
+            </div>
+          </div>
+        </div>
+        <!-- Zone CONTRE -->
+        <div class="carto-zone zone-contre">
+          <div class="zone-label">Contre</div>
+          <button class="cnode contre cn-fontenay" onclick="showActor('fontenay')"><span class="cnode-name">G. de Fontenay</span><span class="cnode-role">Comité Miss France</span></button>
+          <button class="cnode contre cn-mirigliani" onclick="showActor('mirigliani')"><span class="cnode-name">P. Mirigliani</span><span class="cnode-role">Miss Italie</span></button>
+          <button class="cnode contre cn-stern" onclick="showActor('stern')"><span class="cnode-name">Marguerite Stern</span><span class="cnode-role">Féminisme radical</span></button>
+          <button class="cnode contre cn-usa" onclick="showActor('usa')"><span class="cnode-name">Opinion américaine</span><span class="cnode-role">66% opposition (2025)</span></button>
+        </div>
+      </div>
+      <div class="container">
+        <div class="carto-tensions">
+          <div class="ct-label">Points de friction</div>
+          <div class="ct-tags">
+            <span class="ct-tag">Sexe biologique vs état civil</span>
+            <span class="ct-tag">Chirurgie &amp; naturalité</span>
+            <span class="ct-tag">Équité des critères</span>
+            <span class="ct-tag">Divertissement vs engagement</span>
+            <span class="ct-tag">Pinkwashing</span>
+            <span class="ct-tag">Enjeux économiques</span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -428,114 +488,111 @@
   </section>
 
   <script src="script.js"></script>
-</body>
-</html>
-
-<script>
+  <script>
 const actors = {
   talackova: {
     name: "Jenna Talackova",
     role: "Candidate Miss Universe Canada 2012",
     camp: "pour",
-    desc: "Au cœur de la naissance de la controverse. Disqualifiée en 2012 pour être une femme transgenre, elle transforme un cas administratif en débat mondial sur les droits trans. Son combat force l'organisation à revoir ses règles.",
-    quote: "«\u00a0Je souhaite que les concours suppriment cette règle discriminatoire de "femme naturellement née".\u00a0»",
-    influence: "Influence : Déclencheuse de la controverse — sans elle, ce débat n'aurait pas eu lieu à cette échelle."
+    desc: "Au coeur de la naissance de la controverse. Disqualifiee en 2012 pour etre une femme transgenre, elle transforme un cas administratif en debat mondial sur les droits trans. Son combat force l'organisation a revoir ses regles.",
+    quote: "Je souhaite que les concours suppriment cette regle discriminatoire de femme naturellement nee.",
+    influence: "Influence : Declencheuse de la controverse - sans elle, ce debat n'aurait pas eu lieu a cette echelle."
   },
   allred: {
     name: "Gloria Allred",
     role: "Avocate de Jenna Talackova",
     camp: "pour",
-    desc: "Spécialisée dans la défense des droits des femmes et des droits civiques. Elle internationalise l'affaire en 2012 et introduit la menace crédible d'un recours juridique contre Miss Universe.",
-    quote: "«\u00a0Le genre légalement reconnu prime sur le sexe de naissance dans tous les contextes juridiques.\u00a0»",
-    influence: "Influence : Forte — elle donne un poids légal à la contestation et force l'organisation à négocier."
+    desc: "Specialisee dans la defense des droits des femmes et des droits civiques. Elle internationalise l'affaire en 2012 et introduit la menace credible d'un recours juridique contre Miss Universe.",
+    quote: "Le genre legalement reconnu prime sur le sexe de naissance dans tous les contextes juridiques.",
+    influence: "Influence : Forte - elle donne un poids legal a la contestation et force l'organisation a negocier."
   },
   lorphelin: {
     name: "Marine Lorphelin",
     role: "Miss France 2013",
     camp: "pour",
-    desc: "Ancienne Miss France favorable à la participation des femmes transgenres. Elle soutient que l'état civil prime, et qu'une candidate légalement reconnue femme doit pouvoir participer.",
-    quote: "«\u00a0Ce qu'on demande aux jeunes femmes qui se présentent à Miss France, c'est d'être des femmes civilement. D'avoir un acte civil féminin.\u00a0»",
-    influence: "Influence : Importante sur le débat français — figure populaire et positive."
+    desc: "Ancienne Miss France favorable a la participation des femmes transgenres. Elle soutient que l'etat civil prime, et qu'une candidate legalement reconnue femme doit pouvoir participer.",
+    quote: "Ce qu'on demande aux jeunes femmes qui se presentent a Miss France, c'est d'etre des femmes civilement.",
+    influence: "Influence : Importante sur le debat francais - figure populaire et positive."
   },
   kolle: {
-    name: "Rikkie Kollé",
+    name: "Rikkie Kolle",
     role: "Miss Pays-Bas 2023",
     camp: "pour",
-    desc: "Première femme transgenre élue Miss Pays-Bas. Sa victoire fait l'effet d'un séisme en Europe et alimente le débat en France. Elle se bat activement pour les droits de la communauté LGBTQIA+.",
-    quote: "«\u00a0En incarnant Marianne, j'ai appris à quel point une ignorance sociale et juridique peut amener à la haine. Je veux être une inspiration.\u00a0»",
-    influence: "Influence : Symbole concret — elle prouve que la participation trans est possible et victorieuse."
+    desc: "Premiere femme transgenre elue Miss Pays-Bas. Sa victoire fait l'effet d'un seisme en Europe et alimente le debat en France. Elle se bat activement pour les droits de la communaute LGBTQIA+.",
+    quote: "En incarnant Marianne, j'ai appris a quel point une ignorance sociale et juridique peut amener a la haine. Je veux etre une inspiration.",
+    influence: "Influence : Symbole concret - elle prouve que la participation trans est possible et victorieuse."
   },
   moreno: {
-    name: "Élisabeth Moreno",
-    role: "Ancienne ministre chargée de l'Égalité femmes-hommes (2020–2022)",
+    name: "Elisabeth Moreno",
+    role: "Ancienne ministre chargee de l'Egalite femmes-hommes (2020-2022)",
     camp: "pour",
-    desc: "Prône la modernisation des concours et l'inclusion. Elle pousse Miss France à évoluer et à ne plus être discriminant, avec un impact politique direct sur le règlement officiel.",
-    quote: "«\u00a0Miss France doit devenir un symbole d'égalité et être à l'avant-garde du combat féministe.\u00a0»",
-    influence: "Influence : Politique — a permis la modification du règlement de Miss France en 2022."
+    desc: "Prone la modernisation des concours et l'inclusion. Elle pousse Miss France a evoluer et a ne plus etre discriminant, avec un impact politique direct sur le reglement officiel.",
+    quote: "Miss France doit devenir un symbole d'egalite et etre a l'avant-garde du combat feministe.",
+    influence: "Influence : Politique - a permis la modification du reglement de Miss France en 2022."
   },
   glaad: {
     name: "GLAAD",
     role: "Gay & Lesbian Alliance Against Defamation",
     camp: "pour",
-    desc: "Puissante association américaine de défense des droits LGBT+. Dès 2012, elle exerce une pression stratégique sur Miss Universe pour réintégrer Jenna Talackova et protéger la représentation trans dans les médias.",
-    quote: "Veille à ce que la représentation des candidates transgenres soit protégée et valorisée dans les médias internationaux.",
-    influence: "Influence : Très forte aux États-Unis — levier médiatique et juridique majeur."
+    desc: "Puissante association americaine de defense des droits LGBT+. Des 2012, elle exerce une pression strategique sur Miss Universe pour reintegrer Jenna Talackova.",
+    quote: "Veille a ce que la representation des candidates transgenres soit protegee et valorisee dans les medias internationaux.",
+    influence: "Influence : Tres forte aux Etats-Unis - levier mediatique et juridique majeur."
   },
   muorg: {
     name: "Miss Universe Organization",
     role: "Organisation internationale",
     camp: "neutre",
-    desc: "Suite à l'affaire Talackova, ouvre officiellement les candidatures aux femmes transgenres sous conditions : reconnaissance légale du genre féminin et conformité aux lois nationales. Rachetée en 2022 par Anne Jakrajutatip, femme transgenre.",
-    quote: "Pose le standard mondial pour tous les concours affiliés — une décision qui s'impose à tous les Miss Universe nationaux.",
-    influence: "Influence : Maximale — c'est elle qui définit les règles du jeu à l'échelle planétaire."
+    desc: "Suite a l'affaire Talackova, ouvre officiellement les candidatures aux femmes transgenres sous conditions : reconnaissance legale du genre feminin et conformite aux lois nationales. Rachetee en 2022 par Anne Jakrajutatip, femme transgenre.",
+    quote: "Pose le standard mondial pour tous les concours affilies.",
+    influence: "Influence : Maximale - c'est elle qui definit les regles du jeu a l'echelle planetaire."
   },
   mucanada: {
     name: "Miss Universe Canada Organization",
     role: "Organisation nationale canadienne",
     camp: "neutre",
-    desc: "Initialement contre l'inclusion, exclut Jenna Talackova en 2012. Sous la pression publique et juridique, réintègre la candidate et révise ses critères. Son changement de position est représentatif de l'évolution globale.",
-    quote: "L'organisation qui, par son erreur initiale, a déclenché toute la controverse internationale.",
-    influence: "Influence : Historique — son revirement marque le début d'un changement systémique."
+    desc: "Initialement contre l'inclusion, exclut Jenna Talackova en 2012. Sous la pression publique et juridique, reintegre la candidate et revise ses criteres.",
+    quote: "L'organisation qui, par son erreur initiale, a declenche toute la controverse internationale.",
+    influence: "Influence : Historique - son revirement marque le debut d'un changement systemique."
   },
   trump: {
     name: "Donald Trump",
-    role: "Copropriétaire Miss Universe Organization (1996–2015)",
+    role: "Coproprietaire Miss Universe Organization (1996-2015)",
     camp: "neutre",
-    desc: "D'abord favorable au maintien de l'exclusion, il cède sous la pression de l'opinion publique et accepte la réintégration de Jenna Talackova. Son influence organisationnelle est alors décisive.",
-    quote: "«\u00a0Après réflexion et discussions, nous avons décidé de permettre à Jenna de participer.\u00a0»",
-    influence: "Influence : Décisive en 2012 — en tant que copropriétaire, sa décision a valeur de règle."
+    desc: "D'abord favorable au maintien de l'exclusion, il cede sous la pression de l'opinion publique et accepte la reintegration de Jenna Talackova. Son influence organisationnelle est alors decisive.",
+    quote: "Apres reflexion et discussions, nous avons decide de permettre a Jenna de participer.",
+    influence: "Influence : Decisive en 2012 - en tant que coproprietaire, sa decision a valeur de regle."
   },
   fontenay: {
-    name: "Geneviève de Fontenay",
-    role: "Ancienne présidente du Comité Miss France (1981–2010)",
+    name: "Genevieve de Fontenay",
+    role: "Ancienne presidente du Comite Miss France (1981-2010)",
     camp: "contre",
-    desc: "Figure historique des concours de beauté français. Défend une vision conservatrice de la féminité et de l'élégance à la française. Radicalement opposée à l'entrée de personnes transgenres.",
-    quote: "«\u00a0Miss France n'est pas un concours contre-nature ! C'est une élection qui symbolise l'élégance dans une ambiance saine. Il faut arrêter de le saccager.\u00a0»",
-    influence: "Influence : Symbolique forte — figure de référence pour les partisans du modèle traditionnel."
+    desc: "Figure historique des concours de beaute francais. Defend une vision conservatrice de la feminite et de l'elegance a la francaise. Radicalement opposee a l'entree de personnes transgenres.",
+    quote: "Miss France n'est pas un concours contre-nature ! C'est une election qui symbolise l'elegance dans une ambiance saine.",
+    influence: "Influence : Symbolique forte - figure de reference pour les partisans du modele traditionnel."
   },
   mirigliani: {
     name: "Patrizia Mirigliani",
-    role: "Présidente de Miss Italie",
+    role: "Presidente de Miss Italie",
     camp: "contre",
-    desc: "Incarne la résistance institutionnelle en Europe. Maintient fermement le critère « née femme » dans le règlement de Miss Italie, s'opposant frontalement à la direction inclusive de Miss Universe.",
-    quote: "«\u00a0Mon concours est et restera réservé aux personnes nées femmes. C'est une question de cohérence et d'identité.\u00a0»",
-    influence: "Influence : Forte en Europe — montre que le modèle traditionnel reste une référence pour certaines organisations."
+    desc: "Incarne la resistance institutionnelle en Europe. Maintient fermement le critere nee femme dans le reglement de Miss Italie, s'opposant frontalement a la direction inclusive de Miss Universe.",
+    quote: "Mon concours est et restera reserve aux personnes nees femmes.",
+    influence: "Influence : Forte en Europe - montre que le modele traditionnel reste une reference pour certaines organisations."
   },
   stern: {
     name: "Marguerite Stern",
-    role: "Figure du féminisme radical en France",
+    role: "Figure du feminisme radical en France",
     camp: "contre",
-    desc: "Défend l'idée qu'une femme est définie par sa biologie de naissance. Selon elle, une femme transgenre n'aura jamais les mêmes expériences qu'une femme cisgenre, notamment les contraintes sociales liées au corps féminin depuis l'enfance.",
-    quote: "«\u00a0Miss France est un concours qui célèbre la féminité biologique. En y intégrant des hommes qui ont transitionné, on efface la spécificité des femmes.\u00a0»",
-    influence: "Influence : Médiatique — porte-voix du courant féministe radical sur ce sujet."
+    desc: "Defend l'idee qu'une femme est definie par sa biologie de naissance. Selon elle, une femme transgenre n'aura jamais les memes experiences qu'une femme cisgenre.",
+    quote: "Miss France est un concours qui celebre la feminite biologique. En y integrant des hommes qui ont transitionne, on efface la specificite des femmes.",
+    influence: "Influence : Mediatique - porte-voix du courant feministe radical sur ce sujet."
   },
   usa: {
-    name: "Opinion publique américaine",
-    role: "66% d'opposition à l'inclusion trans (Pew Research, 2025)",
+    name: "Opinion publique americaine",
+    role: "66% d'opposition a l'inclusion trans (Pew Research, 2025)",
     camp: "contre",
-    desc: "Représente le baromètre de la tendance globale. Illustre un retour de bâton (backlash) marqué dans le pays d'origine de Miss Universe. Force passive mais massive qui pèse sur les décisions économiques des organisateurs.",
-    quote: "Leur opinion pèse lourdement sur les sponsors, qui craignent une chute de l'audience ou un boycott.",
-    influence: "Influence : Économique et indirecte — détermine les décisions commerciales des propriétaires du concours."
+    desc: "Represente le barometre de la tendance globale. Force passive mais massive qui pese sur les decisions economiques des organisateurs et des sponsors.",
+    quote: "Leur opinion pese lourdement sur les sponsors, qui craignent une chute de l'audience ou un boycott.",
+    influence: "Influence : Economique et indirecte - determine les decisions commerciales des proprietaires du concours."
   }
 };
 
@@ -544,15 +601,12 @@ function showActor(id) {
   document.querySelectorAll('.cnode').forEach(n => n.classList.remove('active'));
   const btn = document.querySelector('.cn-' + id);
   if (btn) btn.classList.add('active');
-
   document.getElementById('cinfo-default').style.display = 'none';
   const detail = document.getElementById('cinfo-detail');
   detail.style.display = 'block';
-
   const tagEl = document.getElementById('cinfo-tag');
   tagEl.textContent = a.camp === 'pour' ? 'Pour l\'inclusion' : a.camp === 'contre' ? 'Contre l\'inclusion' : 'Institutionnel';
   tagEl.className = 'cinfo-tag tag-' + a.camp;
-
   document.getElementById('cinfo-name').textContent = a.name;
   document.getElementById('cinfo-role').textContent = a.role;
   document.getElementById('cinfo-desc').textContent = a.desc;
@@ -565,4 +619,6 @@ function closeActor() {
   document.getElementById('cinfo-default').style.display = 'flex';
   document.getElementById('cinfo-detail').style.display = 'none';
 }
-</script>
+  </script>
+</body>
+</html>
