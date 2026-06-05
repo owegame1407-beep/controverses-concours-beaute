@@ -678,3 +678,16 @@ a { color: inherit; text-decoration: none; }
     border-left: none; border-right: none;
   }
 }
+
+/* ── CARTO IMAGE ────────────────────────────────────────── */
+.carto-img-wrap {
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid rgba(91,206,250,0.15);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+.carto-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}

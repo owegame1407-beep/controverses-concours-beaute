@@ -395,68 +395,9 @@
   <section id="cartographie" class="section section-light">
     <div class="container">
       <h2 class="section-title">Cartographie</h2>
-      <p class="section-intro">Cliquez sur un acteur pour découvrir sa position, ses arguments et son rôle dans la controverse.</p>
-    </div>
-    <div class="carto-map-wrap">
-      <div class="carto-legend">
-        <span class="cleg pour">Pour l'inclusion</span>
-        <span class="cleg contre">Contre l'inclusion</span>
-        <span class="cleg neutre">Institutionnel</span>
-      </div>
-      <div class="carto-stage" id="carto-stage">
-        <!-- Zone POUR -->
-        <div class="carto-zone zone-pour">
-          <div class="zone-label">Pour</div>
-          <button class="cnode pour cn-talackova" onclick="showActor('talackova')"><span class="cnode-name">Jenna Talackova</span><span class="cnode-role">Candidate</span></button>
-          <button class="cnode pour cn-allred" onclick="showActor('allred')"><span class="cnode-name">Gloria Allred</span><span class="cnode-role">Avocate</span></button>
-          <button class="cnode pour cn-lorphelin" onclick="showActor('lorphelin')"><span class="cnode-name">Marine Lorphelin</span><span class="cnode-role">Miss France 2013</span></button>
-          <button class="cnode pour cn-kolle" onclick="showActor('kolle')"><span class="cnode-name">Rikkie Kollé</span><span class="cnode-role">Miss Pays-Bas 2023</span></button>
-          <button class="cnode pour cn-moreno" onclick="showActor('moreno')"><span class="cnode-name">Élisabeth Moreno</span><span class="cnode-role">Ministre (France)</span></button>
-          <button class="cnode pour cn-glaad" onclick="showActor('glaad')"><span class="cnode-name">GLAAD</span><span class="cnode-role">Association LGBT+</span></button>
-        </div>
-        <!-- Zone CENTRE -->
-        <div class="carto-zone zone-centre">
-          <div class="zone-label">Institutionnel</div>
-          <button class="cnode neutre cn-muorg" onclick="showActor('muorg')"><span class="cnode-name">Miss Universe Org.</span><span class="cnode-role">Organisation int.</span></button>
-          <button class="cnode neutre cn-mucanada" onclick="showActor('mucanada')"><span class="cnode-name">Miss Universe Canada</span><span class="cnode-role">Org. nationale</span></button>
-          <button class="cnode neutre cn-trump" onclick="showActor('trump')"><span class="cnode-name">Donald Trump</span><span class="cnode-role">Copropriétaire (2012)</span></button>
-          <!-- Panneau info -->
-          <div class="carto-info" id="carto-info">
-            <div class="cinfo-default" id="cinfo-default">
-              <div class="cinfo-hint">Cliquez sur un acteur pour en savoir plus</div>
-            </div>
-            <div class="cinfo-detail" id="cinfo-detail" style="display:none">
-              <button class="cinfo-close" onclick="closeActor()">&#x2715;</button>
-              <div class="cinfo-tag" id="cinfo-tag"></div>
-              <h3 class="cinfo-name" id="cinfo-name"></h3>
-              <p class="cinfo-role" id="cinfo-role"></p>
-              <p class="cinfo-desc" id="cinfo-desc"></p>
-              <blockquote class="cinfo-quote" id="cinfo-quote"></blockquote>
-              <div class="cinfo-influence" id="cinfo-influence"></div>
-            </div>
-          </div>
-        </div>
-        <!-- Zone CONTRE -->
-        <div class="carto-zone zone-contre">
-          <div class="zone-label">Contre</div>
-          <button class="cnode contre cn-fontenay" onclick="showActor('fontenay')"><span class="cnode-name">G. de Fontenay</span><span class="cnode-role">Comité Miss France</span></button>
-          <button class="cnode contre cn-mirigliani" onclick="showActor('mirigliani')"><span class="cnode-name">P. Mirigliani</span><span class="cnode-role">Miss Italie</span></button>
-          <button class="cnode contre cn-stern" onclick="showActor('stern')"><span class="cnode-name">Marguerite Stern</span><span class="cnode-role">Féminisme radical</span></button>
-          <button class="cnode contre cn-usa" onclick="showActor('usa')"><span class="cnode-name">Opinion américaine</span><span class="cnode-role">66% opposition (2025)</span></button>
-        </div>
-      </div>
-      <div class="container">
-        <div class="carto-tensions">
-          <div class="ct-label">Points de friction</div>
-          <div class="ct-tags">
-            <span class="ct-tag">Sexe biologique vs état civil</span>
-            <span class="ct-tag">Chirurgie &amp; naturalité</span>
-            <span class="ct-tag">Équité des critères</span>
-            <span class="ct-tag">Divertissement vs engagement</span>
-            <span class="ct-tag">Pinkwashing</span>
-            <span class="ct-tag">Enjeux économiques</span>
-          </div>
-        </div>
+      <p class="section-intro">Vue d'ensemble des acteurs et de leurs positions dans la controverse.</p>
+      <div class="carto-img-wrap">
+        <img src="carto.jpg" alt="Cartographie des acteurs de la controverse" class="carto-img" />
       </div>
     </div>
   </section>
